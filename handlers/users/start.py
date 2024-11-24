@@ -7,6 +7,7 @@ from keyboards.default.start_dk import main_keyboard
 from loader import dp, bot
 
 @dp.message_handler(CommandStart(), state="*")
-async def bot_start(msg: Message):
+async def bot_start(msg: Message, state: FSMContext):
+    await state.finish()
     await msg.answer("start",
                      reply_markup=main_keyboard)

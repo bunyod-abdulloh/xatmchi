@@ -1,6 +1,7 @@
 import json
 
 from aiogram import types
+from aiogram.dispatcher import FSMContext
 
 from handlers.users.functions import fback, qaytarish_functions
 from keyboards.inline.xatm_back_ikb import next_callback, xatm_button
@@ -8,7 +9,8 @@ from loader import dp, db
 
 
 @dp.message_handler(text="♻ Қайтариш", state="*")
-async def qaytarish_func(msg: types.Message):
+async def qaytarish_func(msg: types.Message, state: FSMContext):
+    await state.finish()
     await qaytarish_functions(
         message=msg, user_id=msg.from_user.id, text="Сиз ҳали хатмонада иштирок этмадингиз!"
     )

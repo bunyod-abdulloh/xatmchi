@@ -1,12 +1,14 @@
 import json
 
 from aiogram import types
+from aiogram.dispatcher import FSMContext
 
 from loader import dp, db
 
 
 @dp.message_handler(text="👤 ID олиш", state="*")
-async def idqaytar(msg: types.Message):
+async def idqaytar(msg: types.Message, state: FSMContext):
+    await state.finish()
     sel = await db.select_xatmuser(id=msg.from_user.id)
     select = json.loads(sel[2])
     if len(select) == 0:

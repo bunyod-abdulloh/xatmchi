@@ -12,7 +12,8 @@ XATM_ADMINS = [1041847396]
 
 
 @dp.message_handler(text="🎙 Онлайн хатм", state="*")
-async def onlayn_xatm_func(msg: types.Message):
+async def onlayn_xatm_func(msg: types.Message, state: FSMContext):
+    await state.finish()
     await msg.answer("Хатмонага марҳабо!",
                      reply_markup=menu)
 
