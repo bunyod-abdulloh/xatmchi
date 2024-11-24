@@ -5,7 +5,7 @@ yes_no = InlineKeyboardMarkup(
     inline_keyboard=[
         [
             InlineKeyboardButton(
-                text="✅  Ҳа",
+                text="✅ Тасдиқлаш",
                 callback_data="yes"
             ),
             InlineKeyboardButton(
