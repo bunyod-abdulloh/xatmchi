@@ -22,7 +22,7 @@ async def on_startup(dispatcher):
         list1 = [n for n in range(1, 31)]
         await db.add_xatm_db(id=1, list=json.dumps(list1), xatm_data="{}")
         await db.add_users_stat(0, "Poralar taqsimlash holati", 1, 1)
-        await bot.delete_my_commands()
+        # await bot.delete_my_commands()
         await set_default_commands(dispatcher)
 
         await on_startup_notify(dispatcher)
