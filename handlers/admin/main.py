@@ -10,7 +10,7 @@ from keyboards.inline.elon_keys import yes_no
 from loader import dp, db
 
 
-@dp.message_handler(text=['/xatm_buttons'], user_id=ADMINS, state='*')
+@dp.message_handler(text=['/admin'], user_id=ADMINS, state='*')
 async def xatm_admin_func(msg: types.Message):
     await msg.answer("Хатм админлари учун тугмалар", reply_markup=xatm_adminka)
     xatmona = await db.select_users_stat(id=0)
