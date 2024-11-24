@@ -10,9 +10,9 @@ from utils.set_bot_commands import set_default_commands
 
 async def on_startup(dispatcher):
     await db.create()
-    await db.drop_xatmusers()
-    await db.drop_table_xatm_db()
-    await db.drop_table_users_stat()
+    # await db.drop_xatmusers()
+    # await db.drop_table_xatm_db()
+    # await db.drop_table_users_stat()
 
     await db.create_table_stat()
     await db.create_table_xatmusers()
