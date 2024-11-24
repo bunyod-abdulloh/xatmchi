@@ -15,7 +15,7 @@ async def qaytarish_func(msg: types.Message):
 
 
 @dp.callback_query_handler(next_callback.filter(get='qaytarish'))
-async def backporalar(call: types.CallbackQuery, callback_data: dict):
+async def backporalar_user(call: types.CallbackQuery, callback_data: dict):
     list1 = callback_data['info']
     xatm_id = callback_data['xatm_id']
     list2 = [int(list1)]
