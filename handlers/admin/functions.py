@@ -1,3 +1,5 @@
+import os
+
 from aiogram import types
 from openpyxl.workbook import Workbook
 
@@ -36,6 +38,7 @@ async def statistika_func(msg):
     await msg.answer(f"Жами очилган хатмлар: {cnt + cnt_half}"
                      f"\nТўлиқ банд қилинган хатмлар: {cnt}"
                      f"\nЖами қатнашчилар: {users}")
+    os.remove("joriyholat_xatm.xlsx")
 
 
 async def sarhisob_func(msg):
@@ -69,6 +72,7 @@ async def sarhisob_func(msg):
     await msg.answer(f"Жами очилган хатмлар: {cnt + cnt_half}"
                      f"\nЯкунланган хатмлар: {cnt}"
                      f"\nЖами қатнашчилар: {users}")
+    os.remove("sarhisob_xatm.xlsx")
 
 
 async def user_xatmonalar(msg):
@@ -94,3 +98,4 @@ async def user_xatmonalar(msg):
 
     await msg.answer_document(types.InputFile(path_or_bytesio="user_xatmonalar.xlsx"),
                               caption="Фойдаланувчи жами неча пора олгани ва нечта хатмонада иштирок этганини кўрсатувчи жадвал")
+    os.remove("user_xatmonalar.xlsx")
