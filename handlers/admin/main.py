@@ -1,10 +1,12 @@
 import json
+from gettext import textdomain
 
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 
 from data.config import ADMINS
 from handlers.admin.functions import statistika_func, sarhisob_func
+from keyboards.default.start_dk import main_keyboard
 from keyboards.default.xatm_default_key import xatm_adminka
 from keyboards.inline.elon_keys import yes_no
 from loader import dp, db
@@ -88,3 +90,9 @@ async def backporalar(call: types.CallbackQuery, state: FSMContext):
         await call.message.answer("Керакли бўлимни танлашингиз мумкин", reply_markup=xatm_adminka)
 
     await state.finish()
+
+
+@dp.message_handler(text="🏡 Bosh sahifa", state="*")
+async def back_to_main_menu(message: types.Message, state: FSMContext):
+    await state.finish()
+    await message.answer(text=message.text, reply_markup=main_keyboard)
